@@ -26,6 +26,7 @@ class Mvvm {
 
   parseModel(node) {
     //解析data-model
+
   }
 
   parseClass(node) {
