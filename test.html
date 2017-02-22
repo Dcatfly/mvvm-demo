@@ -6,22 +6,45 @@
   <script>
     window.onload = () => {
       let data = {
-        title: 'test todo list',
-        user: 'dcatfly',
-        todos: [
-          {
-            creator: 'dcatfly',
-            content: 'mvvm demo',
-            done: 'wait',
-            date: '2017-02-20',
-            members: [
-              {
-                name: 'qq'
-              }
-            ]
+          title: 'test todo list',
+          user: 'dcatfly',
+          todos: [
+            {
+              creator: 'dcatfly',
+              content: 'mvvm demo',
+              done: 'wait',
+              date: '2017-02-20',
+              members: [
+                {
+                  name: 'qq'
+                }
+              ]
+            },
+            {
+              creator: 'dcatfly1',
+              content: 'mvvm demo1',
+              done: 'wait',
+              date: '2017-02-21',
+              members: [
+                {
+                  name: 'qq'
+                },
+                {
+                  name: 'weixin'
+                }
+              ]
+            }
+          ]
+        },
+        eventList = {
+          clickEvent: {
+            type: 'click',
+            callbackFn: function (e) {
+              console.log(e)
+              console.log(this)
+            }
           }
-        ]
-      }
+        }
       new Mvvm('#root', data)
     }
   </script>
@@ -37,7 +60,7 @@
         <p data-model="todos:date"></p>
         <p data-model="todos:content"></p>
         <ul data-list="todos:members">
-          <li data-list-item="todos:members">
+          <li data-list-item="todos:members" data-event="clickEvent">
             <span data-model="todos:members:name"></span>
           </li>
         </ul>
